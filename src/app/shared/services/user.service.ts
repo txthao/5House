@@ -4,8 +4,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { ApiConstants } from '../config/api-constants';
 
 import { ApiResult } from '../api-results/api-result';
-import { LoginVM } from "../view-models/user/login-vm";
-import { SessionVM } from "../view-models/session/session-vm";
+import { LoginVM } from "../models/user/login";
+import { SessionVM } from "../models/session/session";
 
 @Injectable()
 export class UserService extends APIService {

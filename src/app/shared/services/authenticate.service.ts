@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 //import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {BehaviorSubject} from 'rxjs';
-import { SessionVM } from '../view-models/session/session-vm';
+import { SessionVM } from '../models/session/session';
 
 @Injectable()
 export class AuthenticateService {

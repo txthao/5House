@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "fe": {
+    "5house": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fe",
+            "outputPath": "dist/5house",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,22 +24,23 @@
             ],
             "styles": [
               "node_modules/jquery-ui-dist/jquery-ui.min.css",
-              "node_modules/bootstrap/dist/css/bootstrap.css",
-              "node_modules/font-awesome/css/font-awesome.css",
-              "src/assets/theme/css/lightcase.css",
-              "src/styles.css"
+              "node_modules/font-awesome/css/font-awesome.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.css",  
+              "node_modules/slick-carousel/slick/slick.scss",
+              "node_modules/slick-carousel/slick/slick-theme.scss",
+              "node_modules/@ng-select/ng-select/themes/default.theme.css",
+              "src/assets/theme/css/styles.css",
+              "src/assets/theme/css/custom-styles.css"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["./node_modules"]
+            },
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/jquery-ui-dist/jquery-ui.min.js",
-              "src/assets/theme/js/tether.min.js",
-              "src/assets/theme/js/moment.js",
-              "src/assets/theme/js/transition.min.js",
-              "src/assets/theme/js/imagesloaded.pkgd.min.js",
-              "src/assets/theme/js/smooth-scroll.min.js",
-              "src/assets/theme/js/lightcase.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "src/assets/theme/js/jquery.validate.min.js",
+              "node_modules/slick-carousel/slick/slick.min.js",
               "src/assets/theme/js/script.js"
             
             ]
@@ -67,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "fe:build"
+            "browserTarget": "5house:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "fe:build:production"
+              "browserTarget": "5house:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fe:build"
+            "browserTarget": "5house:build"
           }
         },
         "test": {
@@ -112,7 +113,7 @@
         }
       }
     },
-    "fe-e2e": {
+    "5house-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -120,7 +121,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "fe:serve"
+            "devServerTarget": "5house:serve"
           }
         },
         "lint": {
@@ -135,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "fe"
+  "defaultProject": "5house"
 }

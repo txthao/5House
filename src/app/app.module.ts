@@ -4,12 +4,13 @@ import { FormsModule }   from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 // app route
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 
 // module
-import { HomeModule } from './home/home.module';
-import { PostsModule } from './posts/posts.module';
+import { HomeModule } from './views/home/home.module';
+import { PostsModule } from './views/posts/posts.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { PostsModule } from './posts/posts.module';
         AppRoutingModule,
         HttpClientModule,
         FormsModule,
+        SharedModule,
         //HomeModule,
         PostsModule
     ],
