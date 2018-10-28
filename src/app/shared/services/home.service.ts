@@ -12,7 +12,7 @@ export class HomeService extends APIService {
     super(http);
   }
 
-  public getTypes() {
-    return super.apiGet<ApiResult>(ApiConstants.API+'/types');
+  public getProminentPosts() {
+    return super.apiGet<ApiResult>(ApiConstants.API+'/prominent');
   }
 }

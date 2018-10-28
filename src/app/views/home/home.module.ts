@@ -6,6 +6,7 @@ import { HomeRoutingModule } from './home.routing.module';
 import { HomeComponent } from './home.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ResultsComponent } from './results/results.component';
+import { HomeService } from '../../shared/services/home.service';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ResultsComponent } from './results/results.component';
     HomeRoutingModule,
     SlickCarouselModule,
   ],
+  providers: [HomeService],
   declarations: [HomeComponent, ResultsComponent]
 })
 export class HomeModule { }

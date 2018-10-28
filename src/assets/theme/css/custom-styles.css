@@ -307,6 +307,15 @@ section.top-location {
 .top-location .tp-caption{
     background-color: rgba(0, 0, 0, 0.5);
 }
+
+.top-location .tp-caption h6{
+    /* overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    justify-content: flex-end; */
+    font-size: 1.1rem;
+}
 /* 
 
 .multiselect {

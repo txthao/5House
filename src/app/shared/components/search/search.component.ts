@@ -69,7 +69,6 @@ export class SearchComponent implements OnInit {
     this.selectedType = typeId;
     this.getCategories();
     this.priceSetting(this.selectedType);
-    console.log(this.priceOptions);
   }
 
   priceSetting(typeId){
@@ -109,7 +108,6 @@ export class SearchComponent implements OnInit {
       res => {
         if (res.success) {
           this.categories = res.data;
-          console.log(res.data);
         }
       },
       err => {
@@ -123,7 +121,6 @@ export class SearchComponent implements OnInit {
         if (res.success) {
           this.directions = res.data;
           this.directions = this.directions.concat(Constants.ADDTIONAL_DIRECTIONS);
-          console.log(this.directions);
         }
       },
       err => {
@@ -138,7 +135,6 @@ export class SearchComponent implements OnInit {
         if (res.success) {
           this.districts = res.data;
           this.getStreets();
-          console.log(res.data);
         }
       },
       err => {
@@ -152,7 +148,6 @@ export class SearchComponent implements OnInit {
       res => {
         if (res.success) {
           this.streets = res.data;
-          console.log(res.data);
         }
       },
       err => {

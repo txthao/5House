@@ -10,21 +10,13 @@
     </div>
   </div>
   <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-      <!-- <img src="{{ slide.img }}" alt="" width="100%"> -->
+    <div ngxSlickItem *ngFor="let post of posts" class="slide">
       <div class="item">
         <a href="#">
-          <!-- <div class="homes-content">
-                    Nội dung
-                </div>
-
-                 -->
-          <img src="{{ slide.img }}" alt="home-1" class="img-responsive">
-
+          <img src="{{ post.image }}" alt="home-1" class="img-responsive">
           <div class="tp-caption">
-            <h6>Park Ave, New York City</h6>
-            <strong>Property For Sale</strong>
-            <p>Price:&nbsp; $230,000</p>
+            <h6>{{post.title}}</h6>
+            <p>Giá:&nbsp; {{post.price | number}}</p>
           </div>
         </a>
       </div>
