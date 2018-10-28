@@ -3,28 +3,34 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { ResultsLayoutComponent } from './layouts/results-layout/results-layout.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { Ng5SliderModule } from 'ng5-slider';
+
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SearchComponent } from './components/search/search.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     RouterModule,
+    NgSelectModule,
+    Ng5SliderModule,
   ],
   declarations: [
     HomeLayoutComponent, 
-    ResultsLayoutComponent, 
     HeaderComponent, 
-    FooterComponent
+    FooterComponent, 
+    SearchComponent
   ],
   exports: [
     HomeLayoutComponent, 
-    ResultsLayoutComponent,
     FooterComponent,
     HeaderComponent,
+    SearchComponent
   ]
 })
 export class SharedModule { }

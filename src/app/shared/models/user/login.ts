@@ -1,6 +1,6 @@
 import { Utils } from '../../config/utils';
 
-export class LoginVM {
+export class Login {
   public email: string;
   public password: string;
 

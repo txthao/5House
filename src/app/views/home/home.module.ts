@@ -5,8 +5,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { HomeRoutingModule } from './home.routing.module';
 import { HomeComponent } from './home.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { Ng5SliderModule } from 'ng5-slider';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   imports: [
@@ -15,10 +14,7 @@ import { Ng5SliderModule } from 'ng5-slider';
     SharedModule,
     HomeRoutingModule,
     SlickCarouselModule,
-    NgSelectModule,
-    Ng5SliderModule,
-    
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, ResultsComponent]
 })
 export class HomeModule { }

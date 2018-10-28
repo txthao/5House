@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './views/home/home.module';
 import { PostsModule } from './views/posts/posts.module';
 import { SharedModule } from './shared/shared.module';
+import { SearchService } from './shared/services/search.service';
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { SharedModule } from './shared/shared.module';
         //HomeModule,
         PostsModule
     ],
-    providers: [],
+    providers: [SearchService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

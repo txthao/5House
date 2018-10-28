@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 //import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {BehaviorSubject} from 'rxjs';
-import { SessionVM } from '../models/session/session';
+import { Session } from '../models/session/session';
 
 @Injectable()
 export class AuthenticateService {
-    private sessionSource = new BehaviorSubject<SessionVM>(null);
+    private sessionSource = new BehaviorSubject<Session>(null);
     public session$ = this.sessionSource.asObservable();
     redirectUrl: string;
 
@@ -18,12 +18,12 @@ export class AuthenticateService {
             let email = localStorage.getItem('email');
             let phone = localStorage.getItem('phone');
             let userType = localStorage.getItem('userType');
-            let session = new SessionVM(token, id, fullname, profileImgUrl, email, userType);
+            let session = new Session(token, id, fullname, profileImgUrl, email, userType);
             this.setSession(session);
         }
     }
 
-    setSession(session: SessionVM) {
+    setSession(session: Session) {
         //save data into local storage
         localStorage.setItem('token', session.token);
         // localStorage.setItem('id', session.id);

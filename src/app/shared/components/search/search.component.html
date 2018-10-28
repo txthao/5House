@@ -1,0 +1,76 @@
+<!-- START SECTION SEARCH AREA -->
+<div class="banner-qc d-none d-md-block mx-auto"></div>
+<section class="main-search-field">
+
+  <div class="main-search">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <nav class="search-channel-container">
+            <a class="rui-search-tab" [ngClass]="type.id==selectedType?'active':''" *ngFor="let type of types" (click)="changeType(type.id)">
+              {{type.type_name}}
+            </a>
+          </nav>
+        </div>
+      </div>
+      <div class="container search-box">
+        <div class="row no-gutters ">
+          <div class="col-lg-10 col-md-12 input-col">
+            <i class="fa fa-search search-icon"></i>
+            <input name="where" id="where" class="rui-input" placeholder="Bạn cần tìm gì?">
+          </div>
+          <div class="col-lg-2 col-md-12 search-btn-col">
+            <button class="btn btn-default hvr-bounce-to-right" type="submit" routerLink="/ban">Tìm kiếm</button>
+          </div>
+          <div class="row no-gutters container filter-bar-group">
+            <div class="col-lg-3 col-md-3 col-12 filter-bar ">
+              <ng-select [items]="categories" [multiple]="true" 
+              bindLabel="category_name" 
+              [closeOnSelect]="false" bindValue="id" [(ngModel)]="selectedCategories"
+              [searchable]="false"
+                placeholder="Loại hình BĐS">
+                <ng-template ng-multi-label-tmp let-items="items" >
+                  <div class="ng-value" *ngIf="items.length == 1" >
+                      <span class="ng-value-label">{{items[0].category_name}}</span>
+                  </div>
+                  <div class="ng-value" *ngIf="items.length > 1" >
+                      <span class="ng-value-label">Có {{items.length}} loại hình được chọn</span>
+                  </div>
+                </ng-template>
+                <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index">
+                  <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected" /> {{item.category_name}}
+                </ng-template>
+              </ng-select>
+              <!-- <ng-select [items]="categories" bindLabel="category_name" bindValue="id" [searchable]="false" placeholder="Loại hình BĐS">
+              </ng-select> -->
+            </div>
+            <div class="col-lg-3 col-md-3 col-12 filter-bar px-lg-2 px-md-2">
+              <ng-select [items]="districts" bindLabel="district_name" bindValue="id" [searchable]="false" placeholder="Quận/Huyện">
+              </ng-select>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-12 filter-bar pr-lg-2 pr-md-2">
+              <ng-select [items]="streets" bindLabel="street_name" bindValue="id" [searchable]="true" placeholder="Đường">
+              </ng-select>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-12 filter-bar">
+              <ng-select [items]="directions" bindLabel="category_name" bindValue="id" [searchable]="false" placeholder="Hướng nhà">
+              </ng-select>
+            </div>
+
+            <div class="col-lg-5 col-md-5 col-12 filter-bar filter-bar-slider">
+              <ng5-slider [(value)]="minView" [(highValue)]="maxView" [options]="viewOptions" class="view-slider"></ng5-slider>
+              <span class="ng5-slider-legend">(Diện tích sử dụng - m²)</span>
+            </div>
+            <div class="col-lg-5 offset-lg-2 col-md-5 offset-md-1 col-12 filter-bar filter-bar-slider">
+              <ng5-slider [(value)]="minPrice" [(highValue)]="maxPrice" [options]="priceOptions"></ng5-slider>
+              <span class="ng5-slider-legend">(Khoảng giá - triệu đồng)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

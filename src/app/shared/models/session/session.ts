@@ -1,4 +1,4 @@
-export class SessionVM {
+export class Session {
     token: string;
     id: string;
     name: string;

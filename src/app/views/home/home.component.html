@@ -1,105 +1,36 @@
-<!-- START SECTION SEARCH AREA -->
-<section class="main-search-field">
-  <div class="container">
-    <div class="main-search">
-      <div class="container">
-        <h3>Find Your Dream House</h3>
-        <div class="row">
-          <div class="col-lg-10 col-md-12">
-            <nav class="search-channel-container">
-              <a href="#" class="rui-search-tab active">bán</a>
-              <a href="#" class="rui-search-tab">cho thuê</a>
-              <a href="#" class="rui-search-tab">sang nhượng</a>
-              <a href="#" class="rui-search-tab">Hồ Chí Minh</a>
-            </nav>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-10 col-md-12">
-            <i class="fa fa-search search-icon"></i>
-            <input name="where" id="where" class="rui-input" placeholder="Bạn cần tìm gì?">
-          </div>
-          <div class="col-lg-2 col-md-12 filter-bar-1">
-            <button class="btn btn-default hvr-bounce-to-right" type="submit">Tìm kiếm</button>
-          </div>
-          <div class="row container filter-bar-2">
-            <div class="col-lg-4 col-md-4 col-6 filter-bar ">
-              <!-- <ng-select [items]="categories" [multiple]="true" bindLabel="name" 
-                  [selectableGroup]="true" [selectableGroupAsModel]="true"
-                  [groupBy]="groupByFn"
-                  [groupValue]="groupValueFn"
-                  [closeOnSelect]="false" bindValue="id" [(ngModel)]="selectedCategories"
-                  placeholder="Loại hình BĐS">
-                 <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
-                     <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item}}{{index}}
-                 </ng-template>
-                 <ng-template ng-option-tmp let-item="item" let-item$="item$" let-index="index" >
-                     <input id="item-{{index}}" type="checkbox" [ngModel]="item$.selected"/> {{item.name}}{{item|json}}
-                 </ng-template> 
-                </ng-select> -->
-              <ng-select [items]="categories" bindLabel="name" bindValue="id" [searchable]="false" placeholder="Loại hình BĐS">
-              </ng-select>
-            </div>
-            <div class="col-lg-4 col-md-4 col-6 filter-bar">
-              <ng-select [items]="districts" bindLabel="name" bindValue="id" [searchable]="false" placeholder="Quận/Huyện">
-              </ng-select>
-            </div>
 
-            <div class="col-lg-4 col-md-4 col-6 filter-bar">
-              <ng-select [items]="streets" bindLabel="name" bindValue="id" [searchable]="false" placeholder="Đường">
-              </ng-select>
-            </div>
-            
-            <div class="col-lg-4 col-md-4 col-6 filter-bar">
-              <ng-select [items]="rooms" bindLabel="id" bindValue="id" [searchable]="false" placeholder="Số phòng">
-              </ng-select>
-            </div>
-            <div class="col-lg-4 col-md-4 col-6 filter-bar">
-              <ng-select [items]="directions" bindLabel="id" bindValue="id" [searchable]="false" placeholder="Hướng nhà">
-              </ng-select>
-            </div>
-            <div class="col-lg-4 col-md-4 col-6 filter-bar">
-                <ng5-slider [(value)]="minValue" [(highValue)]="maxValue" [options]="options"></ng5-slider>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <!-- START SECTION TOP LOCATION -->
 <section class="top-location">
   <div class="container">
-    <div class="row">
-      <div class="section-title">
-        <h2>Tin nổi bật</h2>
-      </div>
+  <div class="row">
+    <div class="section-title">
+      <h2>Tin nổi bật</h2>
     </div>
-    <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-      <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-        <!-- <img src="{{ slide.img }}" alt="" width="100%"> -->
-        <div class="item">
-          <a href="#">
-            <!-- <div class="homes-content">
+  </div>
+  <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+    <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+      <!-- <img src="{{ slide.img }}" alt="" width="100%"> -->
+      <div class="item">
+        <a href="#">
+          <!-- <div class="homes-content">
                     Nội dung
                 </div>
 
                  -->
-            <img src="{{ slide.img }}" alt="home-1" class="img-responsive">
+          <img src="{{ slide.img }}" alt="home-1" class="img-responsive">
 
-            <div class="tp-caption">
-              <h6>Park Ave, New York City</h6>
-              <strong>Property For Sale</strong>
-              <p>Price:&nbsp; $230,000</p>
-            </div>
-          </a>
-        </div>
+          <div class="tp-caption">
+            <h6>Park Ave, New York City</h6>
+            <strong>Property For Sale</strong>
+            <p>Price:&nbsp; $230,000</p>
+          </div>
+        </a>
       </div>
+    </div>
 
-    </ngx-slick-carousel>
-
-  </div>
+  </ngx-slick-carousel>
+</div>
 </section>
 <!-- END SECTION TOP LOCATION -->

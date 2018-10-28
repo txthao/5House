@@ -6,23 +6,21 @@ import { HomeModule } from './views/home/home.module';
 import { PostsModule } from './views/posts/posts.module';
 
 import { HomeLayoutComponent } from './shared/layouts/home-layout/home-layout.component';
-import { ResultsLayoutComponent } from './shared/layouts/results-layout/results-layout.component';
 
 const routes: Routes = [
   
   {
     path: '',
     component: HomeLayoutComponent,
-
     children: [
-      { path: '', loadChildren: './views/home/home.module#HomeModule' },
+      { path: '', loadChildren: './views/home/home.module#HomeModule' },   
     ],
     //pathMatch: 'full',
 
   },
   // {
   //   path: 'posts',
-  //   component: ResultsLayoutComponent,
+  //   component: HomeLayoutComponent,
   //   children: [
   //     { path: '', loadChildren: './posts/posts.module#PostsModule' },
   //   ],
