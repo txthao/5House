@@ -6,6 +6,7 @@ import { Constants } from '../../config/constants';
 import { Category } from '../../models/search/category';
 import { District } from '../../models/search/district';
 import { Street } from '../../models/search/street';
+import { Utils } from '../../config/utils';
 
 @Component({
   selector: 'app-search',
@@ -24,8 +25,8 @@ export class SearchComponent implements OnInit {
     ceil: 1000,
     translate: (value: number): string => {
       if (value == 1000)
-        return value + '+';
-      return value + '';
+         return Utils.formatComma(value) + '+';
+      return value.toString();
     },
   };
   //slider
@@ -35,8 +36,8 @@ export class SearchComponent implements OnInit {
     floor: 0,
     translate: (value: number): string => {
       if (value == this.priceOptions.ceil)
-        return value + '+';
-      return value.toString();
+        return Utils.formatComma(value) + '+';
+      return Utils.formatComma(value);
     },
   };
   types: Type[];
@@ -73,8 +74,6 @@ export class SearchComponent implements OnInit {
 
   priceSetting(typeId){
     this.minPrice = 0;
-    this.minPrice = 0;
-    
     if (typeId == Constants.SELL_ID) {
       this.priceOptions.ceil = Constants.SELL_MAX_PRICE;
       this.maxPrice = Constants.SELL_MAX_PRICE;

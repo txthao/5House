@@ -43,6 +43,9 @@ export class Utils {
         return true;
     }
 
+    public static formatComma(number: number){
+        return (number).toLocaleString('en-us')
+    }
     // public static isSameDate(date: Date, compare: Date) {
     //     if (Utils.isDateEmpty(date) && Utils.isDateEmpty(compare)) {
     //         return true;
