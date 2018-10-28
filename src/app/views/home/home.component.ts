@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
   //   {img: "/assets/images/fp-4.jpg"},
   // ];
   slideConfig = {
-    slidesToShow: 4, 
-    slidesToScroll: 4 ,
+    slidesToShow: 3,
+    slidesToScroll: 3 ,
     autoplay: true,
     dots: true,
     responsive: [
@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
       res => {
         if (res.success) {
           this.posts = res.data;
-          this.posts.map(p=> p.image = "/assets/images/fp-1.jpg");
+          this.posts.map(p=> p.image = "/assets/images/feature-properties/fp-1.jpg");
         }
       },
       err => {
