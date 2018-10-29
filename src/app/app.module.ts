@@ -12,6 +12,7 @@ import { HomeModule } from './views/home/home.module';
 import { PostsModule } from './views/posts/posts.module';
 import { SharedModule } from './shared/shared.module';
 import { SearchService } from './shared/services/search.service';
+import { DataService } from './shared/services/data.service';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { SearchService } from './shared/services/search.service';
         //HomeModule,
         PostsModule
     ],
-    providers: [SearchService],
+    providers: [SearchService, DataService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

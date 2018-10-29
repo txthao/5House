@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Options } from 'ng5-slider';
 import { SearchService } from '../../services/search.service';
 import { Type } from '../../models/search/type';
@@ -7,6 +7,10 @@ import { Category } from '../../models/search/category';
 import { District } from '../../models/search/district';
 import { Street } from '../../models/search/street';
 import { Utils } from '../../config/utils';
+import { Search } from '../../models/search/search';
+import { Router } from '@angular/router';
+import { Post } from '../../models/post/post';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-search',
@@ -14,13 +18,13 @@ import { Utils } from '../../config/utils';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-
+  @Output() posts = new EventEmitter();
   rooms = [1, 2, 3, ">3"];
 
-  //slider
-  minView: number = 0;
-  maxView: number = 1000;
-  viewOptions: Options = {
+  //Total Area
+  minTotalArea: number = 0;
+  maxTotalArea: number = 1000;
+  TotalAreaOptions: Options = {
     floor: 0,
     ceil: 1000,
     translate: (value: number): string => {
@@ -29,7 +33,7 @@ export class SearchComponent implements OnInit {
       return value.toString();
     },
   };
-  //slider
+  //Price
   minPrice: number = 0;
   maxPrice: number;
   priceOptions: Options = {
@@ -47,6 +51,7 @@ export class SearchComponent implements OnInit {
   categories: Category[];
 
   directions: Category[];
+  selectedDirections;
 
   selectedProvince = 1;//HCM
 
@@ -56,7 +61,9 @@ export class SearchComponent implements OnInit {
   selectedStreet;
   streets: Street[];
 
-  constructor(private searchService: SearchService) { }
+  title:string;
+
+  constructor(private searchService: SearchService,  private router: Router, private dataService: DataService) { }
 
   ngOnInit() {
     this.getTypes();
@@ -152,5 +159,25 @@ export class SearchComponent implements OnInit {
       err => {
         console.log(err);
       });
+  }
+
+ 
+  searchPosts(){
+    let searchModel:Search = new Search();
+    searchModel.type_id = this.selectedType;
+    searchModel.categories = this.selectedCategories;
+    searchModel.directions = this.selectedDirections;
+    searchModel.province_id = this.selectedProvince;
+    searchModel.district_id = this.selectedDistrict;
+    searchModel.street_id = this.selectedStreet;  
+    searchModel.total_area_from = this.maxTotalArea;
+    searchModel.total_area_to = this.minTotalArea;
+    searchModel.price_from = this.maxPrice;
+    searchModel.price_to = this.minPrice;
+    searchModel.title = this.title;
+    this.dataService.searchModel.next(searchModel);
+    this.router.navigate(['/tindang']);
+    //this.router.navigate(['/tindang'], {queryParams: { searchModel:searchModel}, skipLocationChange: true }
+    
   }
 }

@@ -5,6 +5,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { ApiResult } from '../api-results/api-result';
 import { ApiConstants } from '../config/api-constants';
 import { Constants } from '../config/constants';
+import { Search } from '../models/search/search';
 
 @Injectable()
 export class SearchService extends APIService {
@@ -43,5 +44,40 @@ export class SearchService extends APIService {
             params += 'provinceId=' + districtId;
         }
         return super.apiGet<ApiResult>(ApiConstants.API + '/streets' + params);
+    }
+
+    public searchPosts(searchModel: Search) {
+        let params = '?type_id='+ searchModel.type_id;
+        if (searchModel.categories) {
+            params += '&category_id=' + searchModel.categories;
+        }
+        if (searchModel.directions) {
+            params += '&category_id=' + searchModel.directions;
+        }
+        if (searchModel.province_id) {
+            params += '&province_id=' + searchModel.province_id;
+        }
+        if (searchModel.district_id) {
+            params += '&district_id=' + searchModel.district_id;
+        }
+        if (searchModel.street_id) {
+            params += '&street_id=' + searchModel.street_id;
+        }
+        if (searchModel.total_area_from) {
+            params += '&total_area_from=' + searchModel.total_area_from;
+        }
+        if (searchModel.total_area_to) {
+            params += '&total_area_to=' + searchModel.total_area_to;
+        }
+        if (searchModel.price_from) {
+            params += '&price_from=' + searchModel.price_from;
+        }
+        if (searchModel.price_to) {
+            params += '&price_to=' + searchModel.price_to;
+        }
+        if (searchModel.title) {
+            params += '&title' + searchModel.title;
+        }
+        return super.apiGet<ApiResult>(ApiConstants.API + '/posts/find' + params);
     }
 }
