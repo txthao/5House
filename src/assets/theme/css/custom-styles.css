@@ -517,3 +517,13 @@ section.top-location {
         margin: 10px 0px 0px 0px;
     }
 }
+
+section.recently.portfolio.fivehouse {
+    background: #fff;
+    padding-top: 1rem;
+}
+
+.portfolio-items{
+    margin-right: -7px;
+    margin-left: -7px;
+}

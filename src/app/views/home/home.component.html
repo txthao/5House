@@ -28,7 +28,7 @@
 <!-- END SECTION TOP LOCATION -->
 
 <!-- START SECTION RECENTLY PROPERTIES -->
-<section class="recently portfolio" style="background: #fff; padding-top: 1rem;">
+<section class="recently portfolio fivehouse">
   <div class="container">
     <!--<div class="section-title">
       <h5 style="color: #0098ef">Tin nổi bật</h5>
@@ -36,7 +36,7 @@
 
     <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
       <div ngxSlickItem *ngFor="let post of posts" class="slide">
-        <div class="row portfolio-items" style="margin-right: -7px; margin-left: -7px;">
+        <div class="row portfolio-items">
           <div class="item col-lg-12 col-md-12 col-xs-12 landscapes">
             <div class="homes">
               <!-- homes img -->
@@ -56,7 +56,7 @@
                 </h5>
                 <!-- homes List -->
                 <ul class="homes-list clearfix">
-                  <li style="width: 50%">
+                  <li>
                     <i class="fa fa-bed" aria-hidden="true"></i>
                     <span>Phòng {{post.rooms}}</span>
                   </li>
@@ -64,7 +64,7 @@
                     <i class="fa fa-bath" aria-hidden="true"></i>
                     <span>Baths 3</span>
                   </li>-->
-                  <li style="width: 50%">
+                  <li>
                     <i class="fa fa-object-group" aria-hidden="true"></i>
                     <span>{{post.total_area}} m²</span>
                   </li>
