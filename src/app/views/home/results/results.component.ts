@@ -14,22 +14,25 @@ import { Constants } from '../../../shared/config/constants';
 export class ResultsComponent implements OnInit {
 
   constructor(private searchService: SearchService, private activedRoute: ActivatedRoute, private dataService:DataService) { }
-  searchModel : Search = new Search();
-
+  searchModel : Search;
+  posts: Post[];
   ngOnInit() {
     this.dataService.searchModel.subscribe(value => {
+      console.log(value);
       if(value){
         this.searchModel = value;
       }else{
+        this.searchModel = new Search()
         this.searchModel.type_id = Constants.SELL_ID;
       }
+     
       this.getPosts();
     });
    
   }
 
-  posts: Post[];
   getPosts(){
+    console.log(this.searchModel);
     this.searchService.searchPosts(this.searchModel).subscribe(
       res => {
         if (res.success) {

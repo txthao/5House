@@ -48,11 +48,11 @@ export class SearchService extends APIService {
 
     public searchPosts(searchModel: Search) {
         let params = '?type_id='+ searchModel.type_id;
-        if (searchModel.categories) {
+        if (searchModel.categories != null && searchModel.categories.length > 0) {
             params += '&category_id=' + searchModel.categories;
         }
         if (searchModel.directions) {
-            params += '&category_id=' + searchModel.directions;
+            params += '&direction=' + searchModel.directions;
         }
         if (searchModel.province_id) {
             params += '&province_id=' + searchModel.province_id;
@@ -63,20 +63,20 @@ export class SearchService extends APIService {
         if (searchModel.street_id) {
             params += '&street_id=' + searchModel.street_id;
         }
-        if (searchModel.total_area_from) {
-            params += '&total_area_from=' + searchModel.total_area_from;
+        if (searchModel.total_area_from != null) {
+            params += '&total_from=' + searchModel.total_area_from;
         }
-        if (searchModel.total_area_to) {
-            params += '&total_area_to=' + searchModel.total_area_to;
+        if (searchModel.total_area_to != null) {
+            params += '&total_to=' + searchModel.total_area_to;
         }
-        if (searchModel.price_from) {
-            params += '&price_from=' + searchModel.price_from;
+        if (searchModel.price_from != null) {
+            params += '&price_from=' + searchModel.price_from.toString().concat('000000');
         }
-        if (searchModel.price_to) {
-            params += '&price_to=' + searchModel.price_to;
+        if (searchModel.price_to != null) {
+            params += '&price_to=' + searchModel.price_to.toString().concat('000000');
         }
         if (searchModel.title) {
-            params += '&title' + searchModel.title;
+            params += '&title=' + searchModel.title;
         }
         return super.apiGet<ApiResult>(ApiConstants.API + '/posts/find' + params);
     }

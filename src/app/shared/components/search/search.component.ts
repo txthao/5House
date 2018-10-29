@@ -170,10 +170,10 @@ export class SearchComponent implements OnInit {
     searchModel.province_id = this.selectedProvince;
     searchModel.district_id = this.selectedDistrict;
     searchModel.street_id = this.selectedStreet;  
-    searchModel.total_area_from = this.maxTotalArea;
-    searchModel.total_area_to = this.minTotalArea;
-    searchModel.price_from = this.maxPrice;
-    searchModel.price_to = this.minPrice;
+    searchModel.total_area_from = this.minTotalArea;
+    searchModel.total_area_to = this.maxTotalArea;
+    searchModel.price_from = this.minPrice;
+    searchModel.price_to = this.maxPrice;
     searchModel.title = this.title;
     this.dataService.searchModel.next(searchModel);
     this.router.navigate(['/tindang']);
