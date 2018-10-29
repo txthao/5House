@@ -13,6 +13,14 @@ html{
     max-height: 45px;
 }
 
+.header-bottom .social-icons i {
+    line-height: 26px;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
 .get-quote {
     background: none;
     padding: 0.2rem 1rem;
